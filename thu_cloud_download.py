@@ -145,6 +145,9 @@ def main():
 
     target_files = []
     total_size = 0
+    if max_size < min_size:
+        input("最小值不能大于最大值！")
+        return
     for file in filelist:
         if not max_size is None:
             if max_size >= file["size"] / 1024 / 1024 >= min_size:
