@@ -11,17 +11,22 @@
 
 
 ## Dependency
-需要提前安装python，安装过程略，以及`requirements.txt`文件里面的依赖库：
+建议提前安装python，安装过程略，以及`requirements.txt`文件里面的依赖库：
+
+
+**补充：对于未安装python的用户，可下载exe文件，在命令行中直接运行（也要按如下传入参数）**
 ```shell
 pip install -r requirements.txt
 ```
 
 ## Usage
-|Flags|Default|Description|
-|----|----|----|
-|*--link, -l* |**Required** |Share link of Tsinghua Cloud.|
-|*--save_dir, -s* | `~/Desktop` | Path to save the files. Default: Desktop |
-|*--file, -f* | None | Regex to match the file path. Default: download all files.|
+| Flags            | Default      | Description                                               |
+|------------------|--------------|-----------------------------------------------------------|
+| *--link, -l*     | **Required** | Share link of Tsinghua Cloud.                             |
+| *--save_dir, -s* | `~/Desktop`  | Path to save the files. Default: Desktop                  |
+| *--file, -f*     | None         | Regex to match the file path. Default: download all files. |
+| *--max, -x*      | None         | Maximum file size to be downloaded (MB).                  |
+| *--min, -n*      | 0            | Minimum file size to be downloaded (MB).                  |
 
 ### Example
 ```shell
@@ -29,6 +34,18 @@ python thu_cloud_download.py \
     -l https://cloud.tsinghua.edu.cn/d/1234567890/ 
     -s "/PATH/TO/SAVE" \
     -f "*.pptx?" (regex, 正则表达式) \
+    -x 20 (只下载小于20M的文件) \
+    -n 0.5 (只下载大于512K的文件) \
+```
+
+对于直接运行exe的用户：
+```shell
+thu_cloud_download.exe \
+    -l https://cloud.tsinghua.edu.cn/d/1234567890/ 
+    -s "/PATH/TO/SAVE" \
+    -f "*.pptx?" (regex, 正则表达式) \
+    -x 20 (只下载小于20M的文件) \
+    -n 0.5 (只下载大于512K的文件) \
 ```
 ### Support file format
 *--file, -f* 参数支持 UNIX shell 风格的 pattern 字符串，支持使用如下几个通配符：
@@ -42,6 +59,8 @@ python thu_cloud_download.py \
 ```shell
 # 下载链接中所有文件
 python thu_cloud_download.py -l https://xxx
+# 下载链接中所有大于5M小于20M的文件
+python thu_cloud_download.py -l https://xxx -n 5 -x 20
 # 下载链接中所有的.txt文件
 python thu_cloud_download.py -l https://xxx -f *.txt
 # 下载链接中某个文件夹的所有文件
