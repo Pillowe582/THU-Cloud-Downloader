@@ -14,7 +14,7 @@
 建议提前安装python，安装过程略，以及`requirements.txt`文件里面的依赖库：
 
 
-**补充：对于未安装python的用户，可下载exe文件，在命令行中直接运行（也要按如下传入参数）**
+**补充：对于未安装python的用户，可下载exe文件，在命令行中直接运行，也要按下文所述传入参数。但是有114%的概率被杀软误报（）**
 ```shell
 pip install -r requirements.txt
 ```
