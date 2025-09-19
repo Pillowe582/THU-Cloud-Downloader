@@ -11,13 +11,13 @@
 - [x] 支持设定下载文件的大小范围
 
 ## Dependency
-建议提前安装python，安装过程略，以及`requirements.txt`文件里面的依赖库：
+若使用脚本，必须提前安装python，安装过程略，以及`requirements.txt`文件里面的依赖库：
 
-
-**补充：对于未安装python的用户，可下载exe文件，在命令行中直接运行，也要按下文所述传入参数。但是有114%的概率被杀软误报（）**
 ```shell
 pip install -r requirements.txt
 ```
+
+**补充：对于未安装python的用户，可下载exe文件，在命令行中直接运行，并也要按下文所述传入参数。但是有114%的概率被杀软误报（）**
 
 ## Usage
 | Flags            | Default      | Description                                               |
@@ -38,7 +38,7 @@ python thu_cloud_download.py \
     -n 0.5 (只下载大于512K的文件) \
 ```
 
-对于直接运行exe的用户：
+**对于直接运行exe的用户：**
 ```shell
 thu_cloud_download.exe \
     -l https://cloud.tsinghua.edu.cn/d/1234567890/ 
